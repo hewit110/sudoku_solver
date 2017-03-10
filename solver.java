@@ -15,7 +15,7 @@ public class solver {
 
     public solver()
     {
-
+//          =D
     }
 
 
@@ -26,8 +26,6 @@ public class solver {
     A new line in the .txt file trips a "row" counter to begin the new line in the array
     */
     {
-
-
         Scanner scan = null;try {
             String inputLine = "";
             int row = 0;
@@ -35,18 +33,19 @@ public class solver {
                     (new BufferedReader
                             (new FileReader
                                     ("C:\\Users\\kevin\\Desktop\\sudoku.txt")));
-            while (scan.hasNextLine())
-            {
+
+            while (scan.hasNextLine()) {
                 inputLine = scan.nextLine();
                 inputLine = inputLine.replace("\n", "").replace("\r", "");
                 String [] inArray = inputLine.split(",");
 
-                for (int x = 0; x<inArray.length;++x)
-                {
+                for (int x = 0; x<inArray.length;++x) {
                     puzzle[row][x] = Integer.parseInt(inArray[x]);
                 }
                 row++;
             }
+
+
             System.out.println("Text file read successfully!");
         }catch (FileNotFoundException e) {
             System.out.println("The file was not found!");
@@ -55,6 +54,7 @@ public class solver {
             System.out.println("The following error accurred" + e);
         }
     }
+
 
     public static void check3x3(int x, int y)
     /*
@@ -74,20 +74,18 @@ public class solver {
                 {
                     for (int l = j+i; l<3; k++)
                     {
-                        if (puzzle[i][j] == puzzle[l][k])
-                        {
+                        if (puzzle[i][j] == puzzle[l][k]) {
                             int newNum = replacement(x,y);
                             System.out.println("An error was found at [" + i + "],[" + j + "] " +
                                     " in the grid [" + x + "],[" + y + "] " +
                                     "and will be replaced with " + newNum);
                             puzzle[i][j] = newNum;
-                        }
-                    }
-                }
-            }
-        }
-
-    }
+                        }//sorry
+                    }//sorry
+                }//sorry
+            }//I know
+        }//sorry
+    }//...sorry
 
     public static void checkRows(int completed, int x)
     /*
@@ -104,19 +102,16 @@ public class solver {
             for (int j = i+1; j < 9; ++j)
             {
 
-                if (puzzle[x][i] == puzzle [x][j])
-                {
+                if (puzzle[x][i] == puzzle [x][j]) {
                     System.out.println("A duplicate value was found at [" + x + "],[" + i + "] " +
                             "and will swap places with the value below it");
-                    if (x == 8)
-                    {
+
+                    if (x == 8) {
                         int temp = puzzle[x][i];
                         puzzle[8][i] = puzzle[0][i];
                         puzzle[0][i] = temp;
 
-                    }
-                    else
-                    {
+                    } else {
                         int temp = puzzle[x][i];
                         puzzle[x][i] = puzzle[x+1][i];
                         puzzle[x+1][i] = temp;
@@ -129,7 +124,6 @@ public class solver {
 
         completed++;
 
-
         /*
         NOTE: "completed" will always be incremented by one even after the counter is reset
         NOTE: to counteract this, I check for 9 iterations rather than 8 (the index size of a sudoku board)
@@ -137,19 +131,17 @@ public class solver {
         If the row being check was the final row, reset the counter to start checking the beginning row
          */
 
-        if (completed != 9)
-        {
+        if (completed < 9) {
             if (x == 8) {
                 x = 0;
+
             } else {
                 checkRows(completed, x++);
             }
-        }
-        else
-        {
+
+        } else {
             System.out.println("Vertical lines have been validated and are complete");
         }
-
     }
 
     public static void checkColumns(int completed, int x)
@@ -166,28 +158,22 @@ public class solver {
         {
             for (int j = i+1; j < 9; ++j)
             {
-
-                if (puzzle[i][x] == puzzle [x][j])
+                if (puzzle[x][i] == puzzle [x][j])
                 {
-
-                    if (x == 8)
-                    {
+                    if (x == 8) {
                         System.out.println("A duplicate value was found at [" + i + "],[" + x + "] " +
                                 "and will swap places with the value beside it");
                         int temp = puzzle[i][x];
                         puzzle[i][8] = puzzle[i][0];
                         puzzle[i][0] = temp;
 
-                    }
-                    else
-                    {
+                    } else {
                         int temp = puzzle[i][x];
                         puzzle[i][x] = puzzle[i][x+1];
                         puzzle[i][x+1] = temp;
                     }
                     completed = 0;
                 }
-
             }
         }
         completed++;
@@ -198,20 +184,19 @@ public class solver {
         If not enough iterations have been completed, check the next row in the puzzle array
         If the row being check was the final row, reset the counter to start checking the beginning row
          */
-            if (completed < 9)
-            {
-                if (x == 8) {
-                    x = 0;
-                } else {
-                    checkColumns(completed, x++);
-                }
-            }
-            else
-            {
-                System.out.println("Horizontal columns have been validated and are complete");
+        if (completed < 9) {
+            if (x == 8) {
+                x = 0;
+
+            } else {
+                checkColumns(completed, x++);
             }
 
+        } else {
+            System.out.println("All columns have been validated and are complete");
         }
+
+    }
 
 
     public static int replacement(int x, int y)

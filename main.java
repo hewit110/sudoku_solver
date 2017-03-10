@@ -6,7 +6,10 @@
  *	Thread three checks all 3x3 sub-grids for errors after the first two have completed
  *	@author: Kevin Hewitt
  *  @date: 3/9/2017
- *  @version: 1.3
+ *  @version: 1.5
+ *
+ *  [WARNING]: CONTAINS DISGUSTING QUANTITIES OF FOR LOOPS
+ *  [WARNING]: Please disregard from code review. I know it sucks.
  */
 
 public class main
@@ -56,7 +59,8 @@ public class main
         t2.start();
 
         try{
-        t3.join();
+        t1.join();
+        t2.join();
         }
         catch (Exception e) {
             System.out.println("Something occurred with threads 1 or 2");
