@@ -198,7 +198,7 @@ public class solver {
         If not enough iterations have been completed, check the next row in the puzzle array
         If the row being check was the final row, reset the counter to start checking the beginning row
          */
-            if (completed != 9)
+            if (completed < 9)
             {
                 if (x == 8) {
                     x = 0;

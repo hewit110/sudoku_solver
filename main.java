@@ -1,3 +1,14 @@
+/**
+ *	UDP Server Program
+ *	Listens on a UDP port
+ *	Receives a line of input from a UDP client
+ * Receives a line from a 2nd client
+ *	Establish communication between clients untill one enters "Goodbye"
+ *
+ *	@author: Kevin Hewitt
+@	version: 1.2
+ */
+
 public class main
 {
 
