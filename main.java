@@ -1,12 +1,12 @@
 /**
- *	UDP Server Program
- *	Listens on a UDP port
- *	Receives a line of input from a UDP client
- * Receives a line from a 2nd client
- *	Establish communication between clients untill one enters "Goodbye"
- *
+ *	multithreaded Sudoku solver program
+ *	Takes file input via code in readFile() method in solver class
+ *	Checks for errors in the input file using 4 threads
+ *  Two threads check rows and columns
+ *	Thread three checks all 3x3 sub-grids for errors after the first two have completed
  *	@author: Kevin Hewitt
-@	version: 1.2
+ *  @date: 3/9/2017
+ *  @version: 1.3
  */
 
 public class main

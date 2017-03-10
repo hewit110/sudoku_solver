@@ -49,7 +49,7 @@ public class solver {
             }
             System.out.println("Text file read successfully!");
         }catch (FileNotFoundException e) {
-            System.out.println("The file was not found");
+            System.out.println("The file was not found!");
             e.printStackTrace();
         } catch (Exception e) {
             System.out.println("The following error accurred" + e);
